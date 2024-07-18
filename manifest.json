@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Plex it",
-    "version": "1.0",
-    "description": "Adds a button to search in Perplexity in the Google search page.",
+    "version": "1.0.1",
+    "description": "Adds a button to search in Perplexity in a search page.",
     "permissions": [
         "activeTab",
         "scripting"
@@ -16,7 +16,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.google.com/search*"
+                "<all_urls>"
             ],
             "js": [
                 "content.js"
@@ -30,6 +30,11 @@
             "32": "icons/icon32.png",
             "48": "icons/icon48.png",
             "128": "icons/icon128.png"
+        }
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "plex-it@smartmanoj.com"
         }
     }
 }

@@ -1,6 +1,10 @@
 # Plex it
  TLDR: Adds a button to search in Perplexity in the Google search page. You can also press Alt+A.
 
+Changelog:
+- 1.0.1: Supports all search engines (or any URL with a query parameter (?q=))
+- 1.0.0: Initial release
+
 Hey there, search enthusiasts! 🔍✨ Ever felt like you're missing out on some juicy info when you're Googling? Well, say hello to your new best friend: "Plex It"! This nifty little Chrome extension is about to revolutionize the way you surf the web.
 
 Imagine having a magic button next to your Google search bar that instantly beams your query to Perplexity. No more copy-paste shenanigans or typing the same thing twice. Just one click, and boom! You're diving deep into Perplexity's treasure trove of information.
