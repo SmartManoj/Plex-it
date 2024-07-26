@@ -3,14 +3,19 @@
 // @namespace   Smart Manoj Scripts
 // @match       *://*/*
 // @grant       none
-// @version     1.0
+// @version     1.0.1
 // @author      Smart Manoj
-// @description Adds a shortcut (Alt + A) to search in Perplexity in a search page.
+// @description Adds a button and a shortcut (Alt + A) to search in Perplexity on a search page.
+// @updateURL   https://raw.githubusercontent.com/SmartManoj/Plex-it/main/plex-it.user.js
+
 // ==/UserScript==
 
 (function() {
   // Wait for the DOM to be fully loaded
   window.addEventListener('load', function() {
+
+    // configs
+    const show_button = 1
 
     // Create a button element
     const button = document.createElement('button');
@@ -26,12 +31,17 @@
     button.type = 'button';
 
     // Function to handle the button click
-    function handleButtonClick() {
+    function handleButtonClick(event) {
       const urlParams = new URLSearchParams(window.location.search);
       const query = urlParams.get('q');
       if (query) {
-        const url = `https://www.perplexity.ai/?q=${encodeURIComponent(query)}`;
-        window.open(url, '_self');
+        const URL = `https://www.perplexity.ai/?q=${encodeURIComponent(query)}`;
+        if (event.ctrlKey) {
+          window.open(URL, '_blank');
+        } else {
+          window.location.href = URL;
+        }
+        event.preventDefault();
       } else {
         alert('No search query found.');
       }
@@ -39,17 +49,17 @@
 
     // Add click event to the button
     button.addEventListener('click', handleButtonClick);
-  
+
     // Add keyboard shortcut for Alt+A
     document.addEventListener('keydown', function(event) {
       if (event.altKey && event.key === 'a') {
-        handleButtonClick();
+        handleButtonClick(event);
       }
     });
 
     // Append the button next to the search bar
     const searchBarContainer = document.querySelector('#tsf > div:nth-child(1) > div.A8SBwf > div.RNNXgb');
-    if (searchBarContainer) {
+    if (searchBarContainer && show_button) {
       searchBarContainer.appendChild(button);
     }
 
