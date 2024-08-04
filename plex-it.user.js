@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Plex it
-// @namespace   Smart Manoj Scripts
+// @namespace   Smart User Scripts
 // @match       *://*/*
 // @grant       none
 // @version     1.0.1
